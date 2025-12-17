@@ -1,4 +1,3 @@
-// src/components/AboutSection.tsx
 import Image from 'next/image'
 import Link from 'next/link'
 import { Target, Users, Award, Calendar } from 'lucide-react'
@@ -47,7 +46,7 @@ export function AboutSection() {
           </div>
 
           <div className="space-y-8">
-            {/* O que é */}
+            {/* DESCRIÇÃO*/}
             <div>
               <div className="flex items-start gap-3">
                 <div className="mt-1 rounded-lg bg-brand-orange p-2">
@@ -58,10 +57,10 @@ export function AboutSection() {
                     O que é a Copa Motiva?
                   </h3>
                   <p className="leading-relaxed text-slate-600">
-                    A Copa Motiva é o maior torneio de handebol do Nordeste,
-                    reunindo equipes de toda a região em uma competição que
+                    A Copa Motiva é o maior torneio de handebol da Paraíba,
+                    reunindo equipes de todo o estado em uma competição que
                     celebra o esporte, a dedicação e o espírito de equipe. Com
-                    duas edições de sucesso, o evento se consolidou como
+                    três edições de sucesso, o evento se consolidou como
                     referência no calendário esportivo regional.
                   </p>
                 </div>
@@ -79,8 +78,8 @@ export function AboutSection() {
                     Nossa Missão
                   </h3>
                   <p className="leading-relaxed text-slate-600">
-                    Promover o desenvolvimento do handebol no estado da Paraíba
-                    através de competições de alto nível,
+                    Promover o desenvolvimento do handebol no estado através de
+                    competições de alto nível, fomentando valores como fair play,
                     trabalho em equipe e superação. Queremos revelar novos
                     talentos e fortalecer a comunidade esportiva paraibana.
                   </p>
@@ -111,14 +110,12 @@ export function AboutSection() {
             {/* Botão CTA */}
             <div className="pt-4">
               <a
-                href="/docs/regulamento.pdf" 
-                download="Regulamento-Copa-Motiva.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                 className="inline-block rounded-full bg-brand-orange px-8 py-4 
-                            font-semibold text-white transition-all
-                          hover:scale-105 hover:bg-brand-orange/90 
-                          hover:shadow-lg hover:shadow-brand-orange/30"
+                href="/docs/regulamento.pdf"
+                download
+                className="inline-block rounded-full bg-brand-orange px-8 py-4 
+                           font-semibold text-white transition-all
+                           hover:scale-105 hover:bg-brand-orange/90 
+                           hover:shadow-lg hover:shadow-brand-orange/30"
               >
                 Ver Regulamento Completo
               </a>

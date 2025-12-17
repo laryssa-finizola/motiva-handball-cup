@@ -2,6 +2,11 @@ import Link from 'next/link'
 import { Calendar, Trophy, Users } from 'lucide-react' 
 
 export function HeroSection() {
+
+  const whatsappNumber = "558396595988"; 
+  const message = encodeURIComponent("Olá! Gostaria de realizar a inscrição na Copa Motiva de Handebol 2025.");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
+
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden text-white">
       
@@ -26,36 +31,31 @@ export function HeroSection() {
               <Trophy className="h-4 w-4 text-brand-orange" />
               <span className="text-brand-orange">Edição 2025</span>
             </div>
-            {/* Título Principal */}
-             <div style={{ fontFamily: "'Bebas Neue', sans-serif" }} className="text-white">
-                <div className="text-5xl md:text-6xl lg:text-7xl tracking-wider mb-2 opacity-90">
-                  III
-                </div>
-                <div className="text-6xl md:text-8xl lg:text-9xl tracking-wider leading-none mb-3">
-                  COPA MOTIVA
-                </div>
-                <div style={{ fontFamily: "'Oswald', sans-serif" }} className="text-3xl md:text-4xl lg:text-5xl tracking-wide opacity-95 mb-3">
-                  de handebol
-                </div>
-              </div>
+            {/* Título Principal  */}
+            <div className="text-white">
+              <h1 className="font-bebas text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none">
+                 Copa Motiva de Handebol
+              </h1>
+            </div>
 
             {/* Subtítulo */}
             <p className="mx-auto mb-12 max-w-2xl text-lg text-slate-300 md:text-xl lg:text-2xl">
               O maior torneio de handebol da Paraíba
             </p>
 
-            {/* Botão CTA */}
+           {/* Botão CTA */}
             <div>
               <Link
-                href="/inscricao"
+                href={whatsappUrl}
+                target="_blank"            
+                rel="noopener noreferrer"    
                 className="inline-block rounded-full bg-brand-orange px-12 py-5 text-lg 
-                           font-semibold text-white shadow-2xl shadow-brand-orange/30
-                           transition-all hover:scale-105 hover:bg-brand-orange/90"
+                          font-semibold text-white shadow-2xl shadow-brand-orange/30
+                          transition-all hover:scale-105 hover:bg-brand-orange/90"
               >
                 INSCREVA-SE
               </Link>
             </div>
-
             {/* 3. Cards de Estatísticas */}
             <div className="mx-auto mt-20 grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-3">
               <StatCard
@@ -91,7 +91,7 @@ export function HeroSection() {
             
             {/* Bloco de Links */}
             <div className="flex items-center gap-6">
-              <Link href="/edicoes-anteriores" className="font-semibold text-white transition-opacity hover:opacity-80">
+              <Link href="/#edicoes-anteriores" className="font-semibold text-white transition-opacity hover:opacity-80">
                 EDIÇÕES ANTERIORES
               </Link>
             </div>

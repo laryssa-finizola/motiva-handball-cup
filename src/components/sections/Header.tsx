@@ -13,10 +13,16 @@ export const Header = () => {
 
   const navLinks = [
     { href: '/', label: 'HOME' },
-    { href: '/sobre', label: 'SOBRE' },
-    { href: '/edicoes-anteriores', label: 'EDIÇÕES ANTERIORES' },
+    // apontar para as seções da home usando hash (vai para /#sobre)
+    { href: '/#sobre', label: 'SOBRE' },
+    { href: '/#edicoes-anteriores', label: 'EDIÇÕES ANTERIORES' },
     { href: '/contato', label: 'CONTATO' },
   ]
+
+  // dados necessários para o botão de inscrição via WhatsApp
+  const whatsappNumber = "558396595988"; 
+  const message = encodeURIComponent("Olá! Gostaria de realizar a inscrição na Copa Motiva de Handebol 2025.");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
 
   return (
     <header className="sticky top-0 z-50 w-full bg-brand-dark-blue text-white shadow-md">
@@ -55,15 +61,19 @@ export const Header = () => {
         {/* Botões da Direita */}
         <div className="flex items-center gap-4">
           
-          {/* Botão "Saiba Mais" - Apenas Desktop */}
-          <Link
-            href="/inscricao" 
-            className="hidden rounded-full bg-brand-orange px-6 py-2 
-                       font-semibold text-white transition-transform 
-                       hover:scale-105 md:block"
-          >
-            INSCREVA-SE
-          </Link>
+          {/* Botão CTA */}
+            <div>
+              <Link
+                href={whatsappUrl}
+                target="_blank"             // Abre em nova aba
+                rel="noopener noreferrer"    // Segurança para links externos
+                className="inline-block rounded-full bg-brand-orange px-12 py-5 text-lg 
+                          font-semibold text-white shadow-2xl shadow-brand-orange/30
+                          transition-all hover:scale-105 hover:bg-brand-orange/90"
+              >
+                INSCREVA-SE
+              </Link>
+            </div>
 
           {/* Botão de Tema (do seu código) */}
           <ThemeToggleButton />

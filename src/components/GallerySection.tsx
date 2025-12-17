@@ -19,7 +19,8 @@ const editions: Edition[] = [
 
 export function GallerySection() {
   return (
-    <section className="py-16 px-4">
+    // id para âncora do header
+    <section id="edicoes-anteriores" className="py-16 px-4">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">
           Edições Anteriores
