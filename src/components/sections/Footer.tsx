@@ -1,5 +1,5 @@
 import { SOCIAL_LINKS } from '@/lib/constants';
-import { Instagram } from 'lucide-react'; // ou use o ícone que preferir
+import { Instagram } from 'lucide-react'; 
 
 export function Footer() {
   return (
@@ -23,7 +23,6 @@ export function Footer() {
             >
               <Instagram size={24} />
             </a>
-            {/* Adicione outros links sociais aqui quando tiver */}
           </div>
 
         </div>

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { ThemeToggleButton } from '../ui/theme-toggle-button' 
 import { Menu, X } from 'lucide-react'
+import { INSCRICAO_CTA_CLASSES } from '@/lib/constants'
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -13,7 +14,6 @@ export const Header = () => {
 
   const navLinks = [
     { href: '/', label: 'HOME' },
-    // apontar para as seções da home usando hash (vai para /#sobre)
     { href: '/#sobre', label: 'SOBRE' },
     { href: '/#edicoes-anteriores', label: 'EDIÇÕES ANTERIORES' },
     { href: '/contato', label: 'CONTATO' },
@@ -65,23 +65,21 @@ export const Header = () => {
             <div>
               <Link
                 href={whatsappUrl}
-                target="_blank"             // Abre em nova aba
-                rel="noopener noreferrer"    // Segurança para links externos
-                className="inline-block rounded-full bg-brand-orange px-12 py-5 text-lg 
-                          font-semibold text-white shadow-2xl shadow-brand-orange/30
-                          transition-all hover:scale-105 hover:bg-brand-orange/90"
+                target="_blank"            
+                rel="noopener noreferrer"    
+                className={`${INSCRICAO_CTA_CLASSES} px-8 py-3 text-base font-semibold`}
               >
                 INSCREVA-SE
               </Link>
             </div>
 
-          {/* Botão de Tema (do seu código) */}
+          {/* Botão de Tema */}
           <ThemeToggleButton />
 
-          {/* Botão Hamburger (do seu código) - Apenas Mobile */}
+          {/* Botão Hamburger - Apenas Mobile */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden" // Escondido no desktop
+            className="md:hidden"
             aria-label="Abrir menu"
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -89,7 +87,7 @@ export const Header = () => {
         </div>
       </nav>
 
-      {/* Menu Mobile (Dropdown) - Esta parte estava faltando */}
+      {/* Menu Mobile (Dropdown) */}
       {isMenuOpen && (
         <div className="absolute w-full flex-col items-center gap-6
                       bg-brand-dark-blue pb-8 shadow-lg md:hidden">

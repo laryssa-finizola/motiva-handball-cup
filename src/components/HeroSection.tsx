@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Calendar, Trophy, Users } from 'lucide-react' 
+import { INSCRICAO_CTA_CLASSES } from '@/lib/constants'
 
 export function HeroSection() {
 
@@ -49,14 +50,12 @@ export function HeroSection() {
                 href={whatsappUrl}
                 target="_blank"            
                 rel="noopener noreferrer"    
-                className="inline-block rounded-full bg-brand-orange px-12 py-5 text-lg 
-                          font-semibold text-white shadow-2xl shadow-brand-orange/30
-                          transition-all hover:scale-105 hover:bg-brand-orange/90"
+                className={`${INSCRICAO_CTA_CLASSES} px-12 py-5 text-lg font-semibold`}
               >
                 INSCREVA-SE
               </Link>
             </div>
-            {/* 3. Cards de Estatísticas */}
+            {/*  Cards de Estatísticas */}
             <div className="mx-auto mt-20 grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-3">
               <StatCard
                 icon={<Calendar className="h-6 w-6" />}
@@ -77,7 +76,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* 4. Barra Inferior Laranja*/}
+        {/* Barra Inferior Laranja*/}
         <div className="bg-brand-orange py-5 px-4">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
             
@@ -99,7 +98,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* 5. Indicador de Scroll */}
+      {/*  Indicador de Scroll */}
       <div className="absolute bottom-28 left-1/2 z-20 -translate-x-1/2">
         <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/30 p-2">
           <div className="h-1.5 w-1.5 rounded-full bg-white" />

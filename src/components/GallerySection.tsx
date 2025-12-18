@@ -1,17 +1,16 @@
 import { Edition } from '@/types';
 import Image from 'next/image';
 
-// Dados de exemplo - depois você pode mover isso para constants.ts
 const editions: Edition[] = [
   {
     year: 2024,
-    title: 'Primeira Edição',
+    title: 'Edição de 2024',
     description: 'A primeira edição da Copa Motiva foi um sucesso!',
     images: ['/images/gallery/destaques-edicao1.jpg']
   },
   {
     year: 2023,
-    title: 'Segunda Edição',
+    title: 'Edição de 2023',
     description: 'Ainda mais times e emoção!',
     images: ['/images/gallery/destaques-edicao2.jpg']
   }
