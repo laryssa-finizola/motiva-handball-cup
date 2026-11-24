@@ -14,12 +14,9 @@ const config: Config = {
   				'var(--font-inter)',
   				'sans-serif'
   			],
-  			bebas: [
-  				'var(--font-bebas-neue)',
-  				'sans-serif'
-  			],
-  			oswald: [
-  				'var(--font-oswald)',
+  			anton: [
+  				'var(--font-anton)',
+  				'Impact',
   				'sans-serif'
   			]
   		},
@@ -70,6 +67,15 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		keyframes: {
+  			marquee: {
+  				from: { transform: 'translateX(0)' },
+  				to: { transform: 'translateX(-50%)' }
+  			}
+  		},
+  		animation: {
+  			marquee: 'marquee 40s linear infinite'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
