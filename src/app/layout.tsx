@@ -1,34 +1,67 @@
 // src/app/layout.tsx
-import type { Metadata } from 'next'
-// 1. Importe as fontes novas
-import { Inter, Bebas_Neue, Oswald } from 'next/font/google' 
+import type { Metadata, Viewport } from 'next'
+import { Inter, Anton } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/sections/Header'
 import { Footer } from '@/components/sections/Footer'
+import { SITE } from '@/lib/site'
 import './globals.css'
 
-
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-inter' 
+  variable: '--font-inter',
 })
 
-// 3. Configure as fontes novas
-const bebas_neue = Bebas_Neue({
+// títulos
+const anton = Anton({
   subsets: ['latin'],
-  weight: ['400'], 
-  variable: '--font-bebas-neue', 
+  weight: ['400'],
+  variable: '--font-anton',
 })
 
-const oswald = Oswald({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-oswald', 
-})
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const metadata: Metadata = {
-  title: 'Copa Motiva de Handebol',
-  description: 'O maior torneio de handebol da Paraíba.',
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: SITE.title,
+    template: `%s | ${SITE.name}`,
+  },
+  description: SITE.description,
+  applicationName: SITE.name,
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  category: 'sports',
+  openGraph: {
+    type: 'website',
+    locale: SITE.locale,
+    siteName: SITE.name,
+    title: SITE.title,
+    description: SITE.description,
+    url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE.title,
+    description: SITE.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  ...(googleVerification ? { verification: { google: googleVerification } } : {}),
+}
+
+export const viewport: Viewport = {
+  themeColor: SITE.themeColor,
 }
 
 export default function RootLayout({
@@ -37,18 +70,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-br" suppressHydrationWarning>
-      <body 
-        className={`${inter.variable} ${bebas_neue.variable} ${oswald.variable}`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={`${inter.variable} ${anton.variable}`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
-          <main>{children}</main> 
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

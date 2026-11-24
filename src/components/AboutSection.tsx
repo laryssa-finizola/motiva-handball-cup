@@ -1,149 +1,78 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import { Target, Users, Award, Calendar } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="relative overflow-hidden bg-slate-50 py-20 md:py-32">
-      {/* Cores da copa */}
-      <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl opacity-30" />
-      <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-brand-orange/10 blur-3xl opacity-30" />
+    <section id="sobre" className="bg-[#F4F2EE] py-20 font-sans text-[#111] md:py-28">
+      <div className="container mx-auto flex flex-col gap-12 px-4 md:gap-14">
+        <div className="flex flex-col gap-5">
+        <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#C75A00]">Sobre o torneio</span>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4">
-        {/* Cabeçalho da Seção */}
-        <div className="mb-16 text-center">
-          <span className="mb-4 inline-block rounded-full bg-brand-orange/10 px-4 py-2 text-brand-orange">
-            Sobre o Torneio
+        {/* Frase de abertura com palavras destacadas */}
+        <h2 className="max-w-5xl text-[clamp(1.85rem,3.6vw,3.25rem)] font-semibold leading-[1.2] tracking-[-0.02em]">
+          O maior torneio de handebol da Paraíba reúne equipes de todo o estado para celebrar{' '}
+          <span className="whitespace-nowrap rounded-xl bg-brand-orange px-2.5 text-brand-dark-blue">
+            o esporte
           </span>
-          <h2 className="font-bebas text-4xl text-slate-900 md:text-5xl lg:text-6xl mb-4">
-            Conheça a Copa Motiva
-          </h2>
+          , a dedicação e o{' '}
+          <span className="whitespace-nowrap rounded-xl bg-[#111] px-2.5 text-white">
+            espírito de equipe
+          </span>
+          .
+        </h2>
         </div>
 
-        {/* Grid de Conteúdo Principal */}
-        <div className="mb-20 grid items-center gap-12 md:grid-cols-2 lg:gap-16">
-          {/* Lado da Imagem */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              <Image
-                src="/images/about-image.jpg"
-                alt="Ação de handebol"
-                width={800}
-                height={500}
-                className="h-[500px] w-full object-cover"
-              />
-              {/* Badge na Imagem */}
-              <div className="absolute bottom-6 left-6 rounded-xl bg-brand-orange px-6 py-3 text-white">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-5 w-5" />
-                  <span>3ª Edição • 2025</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -bottom-6 -right-6 -z-10 h-32 w-32 rounded-2xl bg-brand-blue/20" />
-            <div className="absolute -top-6 -left-6 -z-10 h-32 w-32 rounded-2xl bg-brand-orange/20" />
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {/* Escudo da copa: quadrado até 1024px, depois ocupa a altura de duas linhas */}
+          {/* o fundo do card tem a mesma cor creme da arte, para ela se estender sem emenda */}
+          <div className="relative aspect-square overflow-hidden rounded-[20px] bg-[#F2EAE3] lg:row-span-2 lg:aspect-auto">
+            <Image
+              src="/images/escudo-copa-motiva.webp"
+              alt="Escudo da Copa Motiva de Handebol"
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              className="object-contain"
+            />
           </div>
 
-          <div className="space-y-8">
-            {/* DESCRIÇÃO*/}
-            <div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 rounded-lg bg-brand-orange p-2">
-                  <Target className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="mb-2 text-xl font-semibold text-slate-900">
-                    O que é a Copa Motiva?
-                  </h3>
-                  <p className="leading-relaxed text-slate-600">
-                    A Copa Motiva é o maior torneio de handebol da Paraíba,
-                    reunindo equipes de todo o estado em uma competição que
-                    celebra o esporte, a dedicação e o espírito de equipe. Com
-                    três edições de sucesso, o evento se consolidou como
-                    referência no calendário esportivo regional.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <AboutCard number="01" title="O que é a Copa Motiva?">
+            O maior torneio de handebol de base da Paraíba, realizado em Campina Grande. Edição após edição, virou
+            referência no calendário esportivo regional.
+          </AboutCard>
 
-            {/* Missão */}
-            <div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 rounded-lg bg-brand-blue p-2">
-                  <Award className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="mb-2 text-xl font-semibold text-slate-900">
-                    Nossa Missão
-                  </h3>
-                  <p className="leading-relaxed text-slate-600">
-                    Promover o desenvolvimento do handebol no estado através de
-                    competições de alto nível, fomentando valores como fair play,
-                    trabalho em equipe e superação. Queremos revelar novos
-                    talentos e fortalecer a comunidade esportiva paraibana.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <AboutCard number="02" title="Nossa missão">
+            Desenvolver o handebol no estado com competições de alto nível, fair play, trabalho em equipe e superação
+            — e revelar novos talentos.
+          </AboutCard>
 
-            {/* Quem pode participar */}
-            <div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 rounded-lg bg-brand-orange p-2">
-                  <Users className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="mb-2 text-xl font-semibold text-slate-900">
-                    Quem pode participar?
-                  </h3>
-                  <p className="leading-relaxed text-slate-600">
-                    Equipes de todas as categorias são bem-vindas! Desde atletas
-                    mirins até adultos, o torneio oferece espaço para diferentes
-                    faixas etárias e níveis de experiência. Basta ter paixão pelo
-                    handebol e espírito competitivo.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Botão CTA */}
-            <div className="pt-4">
-              <a
-                href="/docs/regulamento.pdf"
-                download
-                className="inline-block rounded-full bg-brand-orange px-8 py-4 
-                           font-semibold text-white transition-all
-                           hover:scale-105 hover:bg-brand-orange/90 
-                           hover:shadow-lg hover:shadow-brand-orange/30"
-              >
-                Ver Regulamento Completo
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Seção de Estatísticas */}
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-          <StatCard number="3ª" label="Edição" />
-          <StatCard number="12+" label="Equipes" />
-          <StatCard number="200+" label="Atletas" />
-          <StatCard number="4" label="Dias de Jogos" />
+          <article className="flex flex-col gap-3 rounded-[20px] bg-brand-dark-blue p-7 text-white lg:col-span-2">
+            <span className="font-anton text-6xl leading-none text-brand-orange">03</span>
+            <h3 className="text-xl font-bold">Quem pode participar?</h3>
+            <p className="max-w-xl text-[15px] leading-relaxed text-white/80">
+              Equipes do pré-mirim ao juvenil, em diferentes níveis de experiência. Basta ter paixão pelo handebol e
+              espírito competitivo.
+            </p>
+            <a
+              href="/docs/regulamento.pdf"
+              download
+              className="mt-2 inline-flex min-h-[44px] items-center gap-2 self-start text-sm font-bold uppercase tracking-wide text-brand-orange transition-colors hover:text-white"
+            >
+              Ver regulamento completo
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </article>
         </div>
       </div>
     </section>
   )
 }
 
-// Card de Estatística
-function StatCard({ number, label }: { number: string; label: string }) {
+function AboutCard({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-slate-100 bg-white p-6 
-                    text-center shadow-lg transition-transform hover:scale-105">
-      <div className="font-bebas text-3xl text-brand-orange md:text-4xl mb-2">
-        {number}
-      </div>
-      <div className="text-sm text-slate-600 md:text-base">{label}</div>
-    </div>
+    <article className="flex flex-col gap-3 rounded-[20px] bg-white p-7">
+      <span className="font-anton text-6xl leading-none text-[#C75A00]">{number}</span>
+      <h3 className="text-xl font-bold">{title}</h3>
+      <p className="text-[15px] leading-relaxed text-[#444]">{children}</p>
+    </article>
   )
 }
